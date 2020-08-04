@@ -14342,6 +14342,46 @@ video {
   transition-delay: 1000ms;
 }
 
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.banner {
+  height: 500px;
+}
+
+.hover\:rotate-0:hover {
+  transform: rotate(0deg);
+}
+
+.hover\:rotate-90:hover {
+  transform: rotate(90deg);
+}
+
+.hover\:rotate-180:hover {
+  transform: rotate(180deg);
+}
+
+.hover\:rotate-270:hover {
+  transform: rotate(270deg);
+}
+
+.hover\:banner:hover {
+  height: 500px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -28106,6 +28146,46 @@ video {
 
   .sm\:delay-1000 {
     transition-delay: 1000ms;
+  }
+
+  .sm\:rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  .sm\:rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .sm\:rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .sm\:rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  .sm\:banner {
+    height: 500px;
+  }
+
+  .sm\:hover\:rotate-0:hover {
+    transform: rotate(0deg);
+  }
+
+  .sm\:hover\:rotate-90:hover {
+    transform: rotate(90deg);
+  }
+
+  .sm\:hover\:rotate-180:hover {
+    transform: rotate(180deg);
+  }
+
+  .sm\:hover\:rotate-270:hover {
+    transform: rotate(270deg);
+  }
+
+  .sm\:hover\:banner:hover {
+    height: 500px;
   }
 }
 
@@ -41874,6 +41954,46 @@ video {
   .md\:delay-1000 {
     transition-delay: 1000ms;
   }
+
+  .md\:rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  .md\:rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .md\:rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .md\:rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  .md\:banner {
+    height: 500px;
+  }
+
+  .md\:hover\:rotate-0:hover {
+    transform: rotate(0deg);
+  }
+
+  .md\:hover\:rotate-90:hover {
+    transform: rotate(90deg);
+  }
+
+  .md\:hover\:rotate-180:hover {
+    transform: rotate(180deg);
+  }
+
+  .md\:hover\:rotate-270:hover {
+    transform: rotate(270deg);
+  }
+
+  .md\:hover\:banner:hover {
+    height: 500px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -55641,6 +55761,46 @@ video {
   .lg\:delay-1000 {
     transition-delay: 1000ms;
   }
+
+  .lg\:rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  .lg\:rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .lg\:rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .lg\:rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  .lg\:banner {
+    height: 500px;
+  }
+
+  .lg\:hover\:rotate-0:hover {
+    transform: rotate(0deg);
+  }
+
+  .lg\:hover\:rotate-90:hover {
+    transform: rotate(90deg);
+  }
+
+  .lg\:hover\:rotate-180:hover {
+    transform: rotate(180deg);
+  }
+
+  .lg\:hover\:rotate-270:hover {
+    transform: rotate(270deg);
+  }
+
+  .lg\:hover\:banner:hover {
+    height: 500px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -69407,5 +69567,45 @@ video {
 
   .xl\:delay-1000 {
     transition-delay: 1000ms;
+  }
+
+  .xl\:rotate-0 {
+    transform: rotate(0deg);
+  }
+
+  .xl\:rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  .xl\:rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  .xl\:rotate-270 {
+    transform: rotate(270deg);
+  }
+
+  .xl\:banner {
+    height: 500px;
+  }
+
+  .xl\:hover\:rotate-0:hover {
+    transform: rotate(0deg);
+  }
+
+  .xl\:hover\:rotate-90:hover {
+    transform: rotate(90deg);
+  }
+
+  .xl\:hover\:rotate-180:hover {
+    transform: rotate(180deg);
+  }
+
+  .xl\:hover\:rotate-270:hover {
+    transform: rotate(270deg);
+  }
+
+  .xl\:hover\:banner:hover {
+    height: 500px;
   }
 }

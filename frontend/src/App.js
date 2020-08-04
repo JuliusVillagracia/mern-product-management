@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import banner from "./deliveryBanner.jpg";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // Components
 import Banner from "./components/components-banner";
@@ -11,9 +10,9 @@ class App extends Component {
     return (
       <Router>
         <span>
-          <Route path="/" exact component={Banner} />
+          <Route component={Banner} />
 
-          <Route path="/" exact component={Navbar} />
+          <Route component={Navbar} />
 
           <div class="flex">
             <a class="p-4">
