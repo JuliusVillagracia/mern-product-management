@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import logo from "../images/logo.png";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-light p-2 bg-gray-200">
+      <nav className="navbar navbar-expand-lg navbar-light flex p-2 bg-gray-200">
+        <img
+          src={logo}
+          width="35"
+          height="35"
+          alt="Cravings Logo"
+          class="navbar-brand mr-6"
+        />
+
         <ul class="navbar-nav flex">
           <li class="mr-3">
             <Link
