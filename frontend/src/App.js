@@ -20,11 +20,9 @@ class App extends Component {
 
           <br />
 
-          <div class="flex">
-            <Route path="/" exact component={Home} />
-            <Route path="/catalogue" component={Catalogue} />
-            <Route path="/contactUs" component={Contact} />
-          </div>
+          <Route path="/" exact component={Home} />
+          <Route path="/catalogue" component={Catalogue} />
+          <Route path="/contactUs" component={Contact} />
         </span>
       </Router>
     );

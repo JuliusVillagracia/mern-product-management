@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import banner from "../images/deliveryBanner.jpg";
 
-export default class Banner extends Component {
+class Banner extends Component {
   render() {
     return (
       <div
-        class="banner w-full bg-no-repeat bg-fixed bg-cover bg-center"
+        className="banner w-full bg-no-repeat bg-fixed bg-cover bg-center"
         style={{ backgroundImage: `url(${banner})` }}
       ></div>
     );
   }
 }
+
+export default Banner;

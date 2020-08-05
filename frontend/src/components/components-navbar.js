@@ -1,8 +1,22 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../images/logo.png";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activePage: "Home",
+    };
+  }
+
+  clickHandler = (e) => {
+    this.setState({
+      activePage: e.target.innerHTML,
+    });
+  };
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light flex p-2 bg-gray-200">
@@ -11,40 +25,64 @@ export default class Navbar extends Component {
           width="35"
           height="35"
           alt="Cravings Logo"
-          class="navbar-brand mr-6"
+          className="navbar-brand mr-6"
         />
 
-        <ul class="navbar-nav flex">
-          <li class="mr-3">
+        <ul className="navbar-nav flex">
+          <li className="mr-3">
             <Link
-              class="nav-link inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white"
+              className={
+                "nav-link inline-block border border-white rounded py-1 px-3 " +
+                (this.state.activePage === "Home"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-black")
+              }
+              onClick={this.clickHandler}
               to="/"
             >
               Home
             </Link>
           </li>
 
-          <li class="mr-3">
+          <li className="mr-3">
             <Link
-              class="nav-link inline-block border border-white rounded py-1 px-3 bg-gray-200"
+              className={
+                "nav-link inline-block border border-white rounded py-1 px-3 " +
+                (this.state.activePage === "Catalogue"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-black")
+              }
+              onClick={this.clickHandler}
               to="/catalogue"
             >
               Catalogue
             </Link>
           </li>
 
-          <li class="mr-3">
+          <li className="mr-3">
             <Link
-              class="nav-link inline-block border border-white rounded py-1 px-3 bg-gray-200"
+              className={
+                "nav-link inline-block border border-white rounded py-1 px-3 " +
+                (this.state.activePage === "Contact us"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-black")
+              }
+              onClick={this.clickHandler}
               to="/contactUs"
             >
               Contact us
             </Link>
           </li>
 
-          <li class="mr-3 absolute right-0">
+          <li className="mr-3 absolute right-0">
             <Link
-              class="nav-link inline-block border border-white rounded py-1 px-3 bg-gray-200"
+              className={
+                "nav-link inline-block border border-white rounded py-1 px-3 " +
+                (this.state.activePage === "Account"
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 text-black")
+              }
+              onClick={this.clickHandler}
               to="/account"
             >
               Account
@@ -55,3 +93,5 @@ export default class Navbar extends Component {
     );
   }
 }
+
+export default Navbar;

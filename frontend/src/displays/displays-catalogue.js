@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 
-export default class Catalogue extends Component {
+class Catalogue extends Component {
   render() {
     return (
-      <span>
-        <h1 class="font-bold">Catalogue Page</h1>
-      </span>
+      <div className="p-6">
+        <h1 className="font-bold text-center text-4xl">Catalogue Page</h1>
+      </div>
     );
   }
 }
+
+export default Catalogue;

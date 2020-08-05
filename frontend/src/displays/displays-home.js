@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
     return (
-      <span>
-        <h1 class="font-bold">Home Page</h1>
+      <div className="p-6">
+        <h1 className="font-bold text-center text-4xl">Home Page</h1>
         <br />
-        <a class="p-4">
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
           faucibus libero erat. Aenean ornare sed urna sit amet hendrerit.
           Praesent elementum, dolor eget tincidunt suscipit, mi magna efficitur
@@ -133,8 +133,10 @@ export default class Home extends Component {
           dignissim nunc at tortor dictum, ut sollicitudin lorem ullamcorper.
           Sed laoreet leo ut sem efficitur, vel tincidunt est sagittis.
           Phasellus luctus tellus mauris, vel pulvinar velit condimentum eget.
-        </a>
-      </span>
+        </p>
+      </div>
     );
   }
 }
+
+export default Home;
