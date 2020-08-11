@@ -3,8 +3,8 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 const ItemCard = props => (
-	<div class="card p-6 shadow-md h-64 w-64 rounded-md">
-		<div class="container">
+	<div className="card p-6 shadow-md h-64 w-64 rounded-md">
+		<div className="container">
 			<p>{props.menu.product_image}</p>
 			<h4><b>{props.menu.product_name}</b></h4>
 			<p>{props.menu.product_description}</p>
