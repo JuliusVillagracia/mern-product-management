@@ -53,9 +53,15 @@ menuRoutes.route('/').get(function (req, res) {
 		if (err) {
 			console.log(err);
 		} else {
-			console.log(menu)
 			res.json(menu);
 		}
+	});
+});
+
+menuRoutes.route('/:id').get(function (req, res) {
+	let id = req.params.id;
+	Menu.findById(id, function (err, product) {
+		res.json(product);
 	});
 });
 
