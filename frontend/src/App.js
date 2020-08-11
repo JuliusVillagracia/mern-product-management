@@ -11,22 +11,22 @@ import Catalogue from "./displays/displays-catalogue";
 import Contact from "./displays/displays-contact";
 
 class App extends Component {
-  render() {
-    return (
-      <Router>
-        <span>
-          <Route component={Banner} />
-          <Route component={Navbar} />
+	render() {
+		return (
+			<Router>
+				<span>
+					<Route component={Banner} />
+					<Route component={Navbar} />
 
-          <br />
+					<br />
 
-          <Route path="/" exact component={Home} />
-          <Route path="/catalogue" component={Catalogue} />
-          <Route path="/contactUs" component={Contact} />
-        </span>
-      </Router>
-    );
-  }
+					<Route path="/" exact component={Home} />
+					<Route path="/catalogue" component={Catalogue} />
+					<Route path="/contactUs" component={Contact} />
+				</span>
+			</Router>
+		);
+	}
 }
 
 export default App;
