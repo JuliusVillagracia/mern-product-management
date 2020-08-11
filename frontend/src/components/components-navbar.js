@@ -33,11 +33,11 @@ class Navbar extends Component {
 						<Link
 							className={
 								"nav-link inline-block border border-white rounded py-1 px-3 " +
-								(window.location.pathname === "/catalogue"
+								(window.location.pathname === "/menu"
 									? "bg-blue-500 text-white"
 									: "bg-gray-200 text-black")
 							}
-							to="/catalogue"
+							to="/menu"
 						>
 							Catalogue
 						</Link>

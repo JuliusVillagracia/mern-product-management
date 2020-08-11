@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
-	.connect("mongodb://127.0.0.1:27017/catalogue", {
+	.connect("mongodb://127.0.0.1:27017/menu", {
 		useUnifiedTopology: true,
 		useNewUrlParser: true,
 	})
@@ -27,9 +27,9 @@ connection.once("open", function () {
 	// try {
 	// 	const newMenu = new Menu({
 	// 		product_image: '',
-	// 		product_name: 'Burger',
-	// 		product_description: "It's a burger",
-	// 		product_price: 80,
+	// 		product_name: 'Chicken',
+	// 		product_description: "It's a chicken leg",
+	// 		product_price: 120,
 	// 	});
 
 	// 	newMenu.save()
@@ -59,7 +59,7 @@ menuRoutes.route('/').get(function (req, res) {
 	});
 });
 
-app.use("/catalogue", menuRoutes);
+app.use("/menu", menuRoutes);
 
 app.listen(PORT, function () {
 	console.log("Server is running on Port: " + PORT);

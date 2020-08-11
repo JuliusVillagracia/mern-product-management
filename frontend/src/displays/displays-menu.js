@@ -13,14 +13,14 @@ const ItemCard = props => (
 	</div>
 )
 
-class Catalogue extends Component {
+class Menu extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { menu: [] };
 	}
 
 	componentDidMount() {
-		axios.get('http://localhost:3001/catalogue')
+		axios.get('http://localhost:3001/menu')
 			.then(res => {
 				this.setState({ menu: res.data })
 			})
@@ -47,4 +47,4 @@ class Catalogue extends Component {
 	}
 }
 
-export default Catalogue;
+export default Menu;

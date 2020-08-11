@@ -7,7 +7,7 @@ import Navbar from "./components/components-navbar";
 
 // Displays
 import Home from "./displays/displays-home";
-import Catalogue from "./displays/displays-catalogue";
+import Catalogue from "./displays/displays-menu";
 import Contact from "./displays/displays-contact";
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
 					<br />
 
 					<Route path="/" exact component={Home} />
-					<Route path="/catalogue" component={Catalogue} />
+					<Route path="/menu" component={Catalogue} />
 					<Route path="/contactUs" component={Contact} />
 				</span>
 			</Router>
