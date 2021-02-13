@@ -39,7 +39,21 @@ class Navbar extends Component {
 							}
 							to="/menu"
 						>
-							Catalogue
+							Menu
+						</Link>
+					</li>
+
+					<li className="mr-3">
+						<Link
+							className={
+								"nav-link inline-block border border-white rounded py-1 px-3 " +
+								(window.location.pathname === "/manage"
+									? "bg-blue-500 text-white"
+									: "bg-gray-200 text-black")
+							}
+							to="/manage"
+						>
+							Manage
 						</Link>
 					</li>
 

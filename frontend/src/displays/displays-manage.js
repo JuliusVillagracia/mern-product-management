@@ -15,7 +15,7 @@ const ItemCard = (props) => (
 			<p>{props.menu.product_description}</p>
 			<p>P{props.menu.product_price}</p>
 			<p className="font-bold">
-				<Link to={"/menu/" + props.menu._id}>
+				<Link to={"/manage/" + props.menu._id}>
 					<br />
 					View
 				</Link>
@@ -24,7 +24,7 @@ const ItemCard = (props) => (
 	</div>
 );
 
-class Menu extends Component {
+class Manage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -87,4 +87,4 @@ class Menu extends Component {
 	}
 }
 
-export default Menu;
+export default Manage;

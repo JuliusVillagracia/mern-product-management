@@ -26,6 +26,13 @@ class Details extends Component {
 				onRequestClose={() => (window.location.pathname = "/menu")}
 			>
 				<div className="p-6">
+					<button
+						onClick={() => (window.location.pathname = "/menu")}
+						className="pr-4 pl-4 pt-4 absolute right-0 top-0"
+					>
+						X
+					</button>
+					<hr />
 					<h1 className="text-center font-bold text-3xl">DETAILS</h1>
 					<div>
 						{/* <p>{this.state.menu.product_image}</p> */}

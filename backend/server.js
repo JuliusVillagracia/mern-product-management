@@ -24,7 +24,7 @@ const connection = mongoose.connection;
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully!");
 
-	// ===== MANUAL SAVE TO COLLECTION ==== //
+	// // ===== MANUAL SAVE TO COLLECTION ==== //
 	// try {
 	// 	const newMenu = new Menu({
 	// 		product_image: '',
@@ -48,15 +48,31 @@ connection.once("open", function () {
 	// }
 });
 
-menuRoutes.route("/").get(function (req, res) {
-	Menu.find(function (err, menu) {
-		if (err) {
-			console.log(err);
-		} else {
-			res.json(menu);
-		}
+menuRoutes.route("/")
+	.get(function (req, res) {
+		Menu.find(function (err, menu) {
+			if (err) {
+				console.log(err);
+			} else {
+				res.json(menu);
+			}
+		});
+	})
+	.post(function (req, res) {
+		Menu.create(req.body)
+			.then((menu) => {
+				console.log('Menu Item Created ', menu);
+				res.statusCode = 200;
+				res.setHeader('Content-Type', 'application/json');
+				res.json(menu);
+			})
 	});
-});
+// .put(function (req, res) {
+
+// })
+// .delete(function (req, res) {
+
+// })
 
 menuRoutes.route("/:id").get(function (req, res) {
 	let id = req.params.id;
@@ -66,6 +82,7 @@ menuRoutes.route("/:id").get(function (req, res) {
 });
 
 app.use("/menu", menuRoutes);
+app.use("/manage", menuRoutes);
 
 app.listen(PORT, function () {
 	console.log("Server is running on Port: " + PORT);
