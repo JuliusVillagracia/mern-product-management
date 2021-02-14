@@ -100,23 +100,33 @@ menuRoutes.route("/:id")
 		});
 	})
 	.delete(function (req, res) {
-		// Menu.find(function (err, menu) {
-		// console.log("req.params")
-		// console.log(req.params)
-		// 	console.log("res")
-		// 	console.log(res.query)
-		// 	console.log("done")
-		// });
-
-		// console.log(req)
-		// console.log(req.params)
-
 		Menu.findByIdAndRemove(req.params.id)
 			.then((menu) => {
 				console.log('Menu Item Removed ', menu);
 				res.statusCode = 200;
 				res.setHeader('Content-Type', 'application/json');
 				res.json(menu);
+			})
+	})
+	.put(function (req, res) {
+		if (!req.body.product_price) {
+			price = 0
+		} else {
+			price = req.body.product_price
+		}
+		Menu.findByIdAndUpdate(req.params.id, {
+			$set: {
+				"product_image": req.body.product_image,
+				"product_name": req.body.product_name,
+				"product_description": req.body.product_description,
+				"product_price": price
+			}
+		})
+			.then((menu) => {
+				console.log('Menu Item Edited Into', req.body);
+				res.statusCode = 200;
+				res.setHeader('Content-Type', 'application/json');
+				res.json(req.body);
 			})
 	});
 

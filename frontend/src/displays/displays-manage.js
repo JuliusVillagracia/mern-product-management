@@ -75,14 +75,31 @@ class Manage extends Component {
 	}
 
 	removeCard() {
-		// console.log(this.state.menu)
-		// console.log(JSON.stringify(this.state.menu[this.state.menu.length - 1]))
-		// console.log(`${this.state.menu[this.state.menu.length - 1]._id}`)
-		// console.log(`${this.state.menu.length - 1}`)
-
 		axios
 			.delete(`http://localhost:3001/menu/${this.state.menu[this.state.menu.length - 1]._id}`)
-			// .delete(`http://localhost:3001/menu/${this.state.menu.length - 1}`)
+			.then((res) => {
+				axios
+					.get("http://localhost:3001/menu")
+					.then((res) => {
+						this.setState({ menu: res.data });
+					})
+					.catch(function (error) {
+						console.log(error);
+					});
+			})
+			.catch(function (error) {
+				console.log("error");
+				console.log(error);
+			});
+	}
+
+	updateCard() {
+		axios
+			.put(`http://localhost:3001/menu/${this.state.menu[this.state.menu.length - 1]._id}`, {
+				"product_name": "Edited Product",
+				"product_description": "Edit Description",
+				// "product_price": 1000
+			})
 			.then((res) => {
 				axios
 					.get("http://localhost:3001/menu")
@@ -109,6 +126,9 @@ class Manage extends Component {
 				</div>
 				<div className="p-6">
 					<button className="text-center text-2xl" onClick={() => this.removeCard()}> Delete </button>
+				</div>
+				<div className="p-6">
+					<button className="text-center text-2xl" onClick={() => this.updateCard()}> Update </button>
 				</div>
 			</div>
 		);
