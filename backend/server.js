@@ -71,15 +71,54 @@ menuRoutes.route("/")
 
 // })
 // .delete(function (req, res) {
+// 	// Menu.find(function (err, menu) {
+// 	// console.log("req.params")
+// 	// console.log(req.params)
+// 	// 	console.log("res")
+// 	// 	console.log(res.query)
+// 	// 	console.log("done")
+// 	// });
 
-// })
+// 	console.log(req)
+// 	console.log(req.params)
 
-menuRoutes.route("/:id").get(function (req, res) {
-	let id = req.params.id;
-	Menu.findById(id, function (err, product) {
-		res.json(product);
+// 	// Menu.findByIdAndRemove(req.params._id)
+// 	// 	.then((menu) => {
+// 	// 		console.log('Menu Item Removed ', menu);
+// 	// 		res.statusCode = 200;
+// 	// 		res.setHeader('Content-Type', 'application/json');
+// 	// 		res.json(menu);
+// 	// 	})
+// });
+
+menuRoutes.route("/:id")
+	.get(function (req, res) {
+		let id = req.params.id;
+		console.log(id)
+		Menu.findById(id, function (err, product) {
+			res.json(product);
+		});
+	})
+	.delete(function (req, res) {
+		// Menu.find(function (err, menu) {
+		// console.log("req.params")
+		// console.log(req.params)
+		// 	console.log("res")
+		// 	console.log(res.query)
+		// 	console.log("done")
+		// });
+
+		// console.log(req)
+		// console.log(req.params)
+
+		Menu.findByIdAndRemove(req.params.id)
+			.then((menu) => {
+				console.log('Menu Item Removed ', menu);
+				res.statusCode = 200;
+				res.setHeader('Content-Type', 'application/json');
+				res.json(menu);
+			})
 	});
-});
 
 app.use("/menu", menuRoutes);
 app.use("/manage", menuRoutes);

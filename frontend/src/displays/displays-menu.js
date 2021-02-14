@@ -50,38 +50,11 @@ class Menu extends Component {
 		});
 	}
 
-	addCard() {
-		axios
-			.post("http://localhost:3001/menu", {
-				"product_image": "",
-				"product_name": "Test Product",
-				"product_description": "Test Description",
-				"product_price": 100
-			})
-			.then((res) => {
-				axios
-					.get("http://localhost:3001/menu")
-					.then((res) => {
-						this.setState({ menu: res.data });
-					})
-					.catch(function (error) {
-						console.log(error);
-					});
-			})
-			.catch(function (error) {
-				console.log("error");
-				console.log(error);
-			});
-	}
-
 	render() {
 		return (
 			<div className="p-6">
 				<h1 className="text-center font-bold text-4xl">Le Menu</h1>
 				<div className="flex flex-wrap">{this.menuCardsList()}</div>
-				<div className="p-6">
-					<button className="text-center text-2xl" onClick={() => this.addCard()}>Add</button>
-				</div>
 			</div>
 		);
 	}
