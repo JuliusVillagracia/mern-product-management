@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Modal from "react-modal";
 
@@ -82,7 +83,10 @@ class Details extends Component {
 							<button className="font-bold" onClick={() => this.removeCard()}>Delete</button>
 						</p>
 						<p>
-							<button className="font-bold" onClick={() => this.updateCard()}>Update</button>
+							{/* <button className="font-bold" onClick={() => this.updateCard()}>Update</button> */}
+							<Link className="font-bold" to={`/manage/${this.state.menu._id}/update`}>
+								Edit
+							</Link>
 						</p>
 					</div>
 				</div>

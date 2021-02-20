@@ -10,6 +10,7 @@ import Home from "./displays/displays-home";
 import Catalogue from "./displays/displays-menu";
 import Manage from "./displays/displays-manage";
 import ProdDetails from "./displays/displays-prodDetails";
+import ProdUpdate from "./displays/displays-prodUpdate";
 import Contact from "./displays/displays-contact";
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
 					<Route path="/menu/:id" component={ProdDetails} />
 					<Route path="/manage" component={Manage} />
 					<Route path="/manage/:id" component={ProdDetails} />
+					<Route path="/manage/:id/update" component={ProdUpdate} />
 					<Route path="/contactUs" component={Contact} />
 				</span>
 			</Router>
