@@ -35,14 +35,13 @@ class Details extends Component {
 					<hr />
 					<h1 className="text-center font-bold text-3xl">DETAILS</h1>
 					<div>
-						{/* <p>{this.state.menu.product_image}</p> */}
 						<img
-							src="https://images.unsplash.com/photo-1591429640801-942538e4637d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"
-							alt="Chikin"
+							src={this.state.menu.product_image}
+							alt="Product Feature"
 							className="rounded-md w-full"
 						/>
 						<p>NAME: {this.state.menu.product_name}</p>
-						<p>PRICE: {this.state.menu.product_price}</p>
+						<p>PRICE: ₱{this.state.menu.product_price}</p>
 						<p>
 							DESCRIPTION: {this.state.menu.product_description}
 						</p>

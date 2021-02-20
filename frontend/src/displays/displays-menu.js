@@ -5,15 +5,14 @@ import axios from "axios";
 const ItemCard = (props) => (
 	<div className="card p-4 shadow-md w-64 rounded-md">
 		<div className="container">
-			{/* <p>{props.menu.product_image}</p> */}
 			<img
-				src="https://images.unsplash.com/photo-1591429640801-942538e4637d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80"
-				alt="Chikin"
+				src={props.menu.product_image}
+				alt="Product Feature"
 				className="rounded-md w-full"
 			/>
 			<h4 className="font-bold">{props.menu.product_name}</h4>
 			<p>{props.menu.product_description}</p>
-			<p>P{props.menu.product_price}</p>
+			<p>₱{props.menu.product_price}</p>
 			<p className="font-bold">
 				<Link to={"/menu/" + props.menu._id}>
 					<br />

@@ -23,29 +23,6 @@ const connection = mongoose.connection;
 
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully!");
-
-	// // ===== MANUAL SAVE TO COLLECTION ==== //
-	// try {
-	// 	const newMenu = new Menu({
-	// 		product_image: '',
-	// 		product_name: 'Chicken',
-	// 		product_description: "It's a chicken leg",
-	// 		product_price: 120,
-	// 	});
-
-	// 	newMenu.save()
-	// 		.then(todo => {
-	// 			console.log('menu: menu item added successfully');
-	// 			Menu.find(function (err, data) {
-	// 				console.log(data)
-	// 			})
-	// 		})
-	// 		.catch(err => {
-	// 			console.log('adding menu item failed!')
-	// 		});
-	// } catch (err) {
-	// 	console.dir(err.message, { colors: true });
-	// }
 });
 
 menuRoutes.route("/")
