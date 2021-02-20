@@ -38,7 +38,7 @@ class Manage extends Component {
 	}
 
 	componentDidMount() {
-		this.fetchDb()
+		this.fetchDb();
 	}
 
 	fetchDb() {
@@ -61,7 +61,7 @@ class Manage extends Component {
 	addCard() {
 		axios
 			.post("http://localhost:3001/menu", {
-				"product_image": "",
+				"product_image": "https://images.unsplash.com/photo-1591429640801-942538e4637d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80",
 				"product_name": "Test Product",
 				"product_description": "Test Description",
 				"product_price": 100

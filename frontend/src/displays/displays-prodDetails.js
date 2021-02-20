@@ -9,6 +9,10 @@ class Details extends Component {
 	}
 
 	componentDidMount() {
+		this.fetchDb();
+	}
+
+	fetchDb() {
 		axios
 			.get("http://localhost:3001/menu/" + this.props.match.params.id)
 			.then((res) => {
@@ -19,15 +23,44 @@ class Details extends Component {
 			});
 	}
 
+	removeCard() {
+		axios
+			.delete(`http://localhost:3001/menu/${this.state.menu._id}`)
+			.then((res) => {
+				window.location.pathname = "/manage";
+			})
+			.catch(function (error) {
+				console.log("error");
+				console.log(error);
+			});
+	}
+
+	updateCard() {
+		axios
+			.put(`http://localhost:3001/menu/${this.state.menu._id}`, {
+				"product_image": "https://media1.giphy.com/media/PmuRN2xj0tfwuTPpIu/giphy.gif?cid=ecf05e47us9m25w57cq5p6qjt63iutw08pt2t1p1be49uaot&rid=giphy.gif",
+				"product_name": "Edited Product",
+				"product_description": "Edit Description",
+				"product_price": 1000
+			})
+			.then((res) => {
+				this.fetchDb();
+			})
+			.catch(function (error) {
+				console.log("error");
+				console.log(error);
+			});
+	}
+
 	render() {
 		return (
 			<Modal
 				isOpen={true}
-				onRequestClose={() => (window.location.pathname = "/menu")}
+				onRequestClose={() => (window.location.pathname = "/manage")}
 			>
 				<div className="p-6">
 					<button
-						onClick={() => (window.location.pathname = "/menu")}
+						onClick={() => (window.location.pathname = "/manage")}
 						className="pr-4 pl-4 pt-4 absolute right-0 top-0"
 					>
 						X
@@ -44,6 +77,12 @@ class Details extends Component {
 						<p>PRICE: ₱{this.state.menu.product_price}</p>
 						<p>
 							DESCRIPTION: {this.state.menu.product_description}
+						</p>
+						<p>
+							<button className="font-bold" onClick={() => this.removeCard()}>Delete</button>
+						</p>
+						<p>
+							<button className="font-bold" onClick={() => this.updateCard()}>Update</button>
 						</p>
 					</div>
 				</div>
