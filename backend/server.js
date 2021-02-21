@@ -71,7 +71,6 @@ menuRoutes.route("/")
 menuRoutes.route("/:id")
 	.get(function (req, res) {
 		let id = req.params.id;
-		console.log(id)
 		Menu.findById(id, function (err, product) {
 			res.json(product);
 		});

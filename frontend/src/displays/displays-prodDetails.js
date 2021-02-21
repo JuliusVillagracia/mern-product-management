@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import Modal from "react-modal";
 
@@ -31,24 +30,6 @@ class Details extends Component {
 				window.location.pathname = "/manage";
 			})
 			.catch(function (error) {
-				console.log("error");
-				console.log(error);
-			});
-	}
-
-	updateCard() {
-		axios
-			.put(`http://localhost:3001/menu/${this.state.menu._id}`, {
-				"product_image": "https://media1.giphy.com/media/PmuRN2xj0tfwuTPpIu/giphy.gif?cid=ecf05e47us9m25w57cq5p6qjt63iutw08pt2t1p1be49uaot&rid=giphy.gif",
-				"product_name": "Edited Product",
-				"product_description": "Edit Description",
-				"product_price": 1000
-			})
-			.then((res) => {
-				this.fetchDb();
-			})
-			.catch(function (error) {
-				console.log("error");
 				console.log(error);
 			});
 	}
@@ -59,35 +40,61 @@ class Details extends Component {
 				isOpen={true}
 				onRequestClose={() => (window.location.pathname = "/manage")}
 			>
-				<div className="p-6">
-					<button
-						onClick={() => (window.location.pathname = "/manage")}
-						className="pr-4 pl-4 pt-4 absolute right-0 top-0"
-					>
-						X
-					</button>
+				<div className="p-6 h-full">
+					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
+						<button
+							onClick={() => this.removeCard()}
+							className="px-2"
+						>
+							D
+						</button>
+						<button
+							onClick={() => (window.location.pathname = `/manage/${this.state.menu._id}/update`)}
+							className="px-2"
+						>
+							U
+						</button>
+						<button
+							onClick={() => (window.location.pathname = "/manage")}
+							className="px-2"
+						>
+							X
+						</button>
+					</div>
 					<hr />
 					<h1 className="text-center font-bold text-3xl">DETAILS</h1>
-					<div>
+					<div className="pt-4 h-full md:grid md:grid-cols-2">
 						<img
 							src={this.state.menu.product_image}
 							alt="Product Feature"
-							className="rounded-md w-full"
+							className="rounded-md w-full h-64 object-cover"
 						/>
-						<p>NAME: {this.state.menu.product_name}</p>
-						<p>PRICE: ₱{this.state.menu.product_price}</p>
-						<p>
-							DESCRIPTION: {this.state.menu.product_description}
-						</p>
-						<p>
-							<button className="font-bold" onClick={() => this.removeCard()}>Delete</button>
-						</p>
-						<p>
-							{/* <button className="font-bold" onClick={() => this.updateCard()}>Update</button> */}
-							<Link className="font-bold" to={`/manage/${this.state.menu._id}/update`}>
-								Edit
-							</Link>
-						</p>
+						<div className="p-4">
+							<div>
+								<div className="inline-block font-bold mr-2">
+									NAME:
+								</div>
+								<div className="inline-block">
+									{this.state.menu.product_name}
+								</div>
+							</div>
+							<div>
+								<div className="inline-block font-bold mr-2">
+									PRICE:
+								</div>
+								<div className="inline-block">
+									₱{this.state.menu.product_price}
+								</div>
+							</div>
+							<div>
+								<div className="font-bold">
+									DESCRIPTION:
+								</div>
+								<div>
+									{this.state.menu.product_description}
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</Modal>

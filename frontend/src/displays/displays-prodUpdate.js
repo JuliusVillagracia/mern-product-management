@@ -7,10 +7,10 @@ class Details extends Component {
 		super(props);
 		this.state = {
 			menu: [],
-			pimg: '',
-			pname: '',
-			pdesc: '',
-			pprice: 0,
+			update_img: '',
+			update_name: '',
+			update_desc: '',
+			update_price: 0,
 			minRows: 1,
 			maxRows: 5,
 		};
@@ -22,10 +22,10 @@ class Details extends Component {
 			.then((res) => {
 				this.setState({
 					menu: res.data,
-					pimg: res.data.product_image,
-					pname: res.data.product_name,
-					pdesc: res.data.product_description,
-					pprice: res.data.product_price
+					update_img: res.data.product_image,
+					update_name: res.data.product_name,
+					update_desc: res.data.product_description,
+					update_price: res.data.product_price
 				});
 			})
 			.catch(function (error) {
@@ -48,16 +48,15 @@ class Details extends Component {
 		event.preventDefault();
 		axios
 			.put(`http://localhost:3001/menu/${this.state.menu._id}`, {
-				"product_image": this.state.pimg,
-				"product_name": this.state.pname,
-				"product_description": this.state.pdesc,
-				"product_price": this.state.pprice
+				"product_image": this.state.update_img,
+				"product_name": this.state.update_name,
+				"product_description": this.state.update_desc,
+				"product_price": this.state.update_price
 			})
 			.then((res) => {
 				window.location.pathname = `/manage/${this.state.menu._id}`;
 			})
 			.catch(function (error) {
-				console.log("error");
 				console.log(error);
 			});
 	}
@@ -90,55 +89,64 @@ class Details extends Component {
 				isOpen={true}
 				onRequestClose={() => (window.location.pathname = `/manage/${this.state.menu._id}`)}
 			>
-				<div className="p-6">
-					<button
-						onClick={() => (window.location.pathname = `/manage/${this.state.menu._id}`)}
-						className="pr-4 pl-4 pt-4 absolute right-0 top-0"
-					>
-						X
-					</button>
-					<hr />
-					<h1 className="text-center font-bold text-3xl">DETAILS</h1>
-					<div>
-						<div className="p-3 col-span-2 col-start-2 bg-blue-600 border-blue-200 border-8">
-							<h1 className="text-center font-bold text-2xl col-span-4 text-white">Le Product Update Form</h1>
 
-							<form className="text-right" onSubmit={this.submitHandler}>
-								<div className="grid grid-cols-3 py-1">
-									<label className="font-bold pr-2 w-full text-white" htmlFor="pname">Name:</label>
-									<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pname} type="text" id="pname" name="pname" placeholder="Enter Product Name..." />
-								</div>
-
-								<div className="grid grid-cols-3 py-1">
-									<label className="font-bold pr-2 w-full text-white" htmlFor="pdesc">Description:</label>
-									<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" cols="30" onChange={this.textAreaHandler} value={this.state.pdesc} id="pdesc" name="pdesc" placeholder="Enter Product Description..." />
-								</div>
-
-								<div className="grid grid-cols-3 py-1">
-									<label className="font-bold pr-2 w-full text-white" htmlFor="pimg">Image URL:</label>
-									<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" onChange={this.textAreaHandler} value={this.state.pimg} id="pimg" name="pimg" placeholder="Enter Product Image..." />
-								</div>
-
-								<div className="grid grid-cols-3 py-1">
-									<label className="font-bold pr-2 w-full text-white" htmlFor="pprice">Price:</label>
-									<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pprice} type="number" id="pprice" name="pprice" min='0' placeholder="Enter Price..." />
-								</div>
-
-								<p className="grid grid-cols-3 py-4">
-									<input className="font-bold col-start-2 bg-blue-700 text-white" type="submit" value="UPDATE" />
-								</p>
-							</form>
-						</div>
-						{/* <p>IMG SOURCE: {this.state.menu.product_image}</p>
-						<p>NAME: {this.state.menu.product_name}</p>
-						<p>PRICE: ₱{this.state.menu.product_price}</p>
-						<p>
-							DESCRIPTION: {this.state.menu.product_description}
-						</p>
-						<p>
-							<button className="font-bold" onClick={() => this.updateCard()}>Update</button>
-						</p> */}
+				<div className="p-6 h-full">
+					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
+						<button
+							onClick={() => (window.location.pathname = window.location.pathname = `/manage/${this.state.menu._id}`)}
+							className="px-2"
+						>
+							X
+						</button>
 					</div>
+					<hr />
+					<h1 className="text-center font-bold text-3xl">EDIT</h1>
+					<form onSubmit={this.submitHandler}>
+						<div className="pt-4 h-full md:grid md:grid-cols-2">
+							<div>
+								<img
+									src={this.state.update_img}
+									alt="Product Feature"
+									className="rounded-md w-full h-64 object-cover"
+								/>
+								<textarea className="px-2 w-full mt-2 text-white bg-blue-900 rounded-md" style={{ resize: 'none' }} rows="4" onChange={this.textAreaHandler} value={this.state.update_img} id="update_img" name="update_img" placeholder="Enter Product Image..." />
+								<div className="w-full text-center">
+									<label className="font-bold w-full text-center" htmlFor="update_img">
+										Image URL
+									</label>
+								</div>
+							</div>
+							<div className="p-4 space-y-2">
+								<div>
+									<label className="font-bold mr-2" htmlFor="update_name">
+										Name:
+									</label>
+									<div className="inline-block">
+										<input className="px-2 w-full text-white bg-blue-900 rounded-md" onChange={this.inputHandler} value={this.state.update_name} type="text" id="update_name" name="update_name" placeholder="Enter Product Name..." />
+									</div>
+								</div>
+								<div >
+									<label className="font-bold mr-2" htmlFor="update_price">
+										Price:
+										</label>
+									<div className="inline-block">
+										<input className="px-2 w-full text-white bg-blue-900 rounded-md" onChange={this.inputHandler} value={this.state.update_price} type="number" id="update_price" name="update_price" min='0' placeholder="Enter Price..." />
+									</div>
+								</div>
+								<div>
+									<label className="font-bold" htmlFor="update_desc">
+										Description:
+									</label>
+									<div>
+										<textarea className="px-2 w-full text-white bg-blue-900 rounded-md" style={{ resize: 'none' }} rows="10" cols="30" onChange={this.textAreaHandler} value={this.state.update_desc} id="update_desc" name="update_desc" placeholder="Enter Product Description..." />
+									</div>
+								</div>
+							</div>
+						</div>
+						<div className="w-full text-center mt-8">
+							<input className="font-bold px-20 py-2 rounded-md bg-blue-900 text-white" type="submit" value="UPDATE PRODUCT" />
+						</div>
+					</form>
 				</div>
 			</Modal>
 		);

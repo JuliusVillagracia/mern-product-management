@@ -58,51 +58,6 @@ class Manage extends Component {
 		});
 	}
 
-	addCard() {
-		axios
-			.post("http://localhost:3001/menu", {
-				"product_image": "https://images.unsplash.com/photo-1591429640801-942538e4637d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80",
-				"product_name": "Test Product",
-				"product_description": "Test Description",
-				"product_price": 100
-			})
-			.then((res) => {
-				this.fetchDb()
-			})
-			.catch(function (error) {
-				console.log("error");
-				console.log(error);
-			});
-	}
-
-	removeCard() {
-		axios
-			.delete(`http://localhost:3001/menu/${this.state.menu[this.state.menu.length - 1]._id}`)
-			.then((res) => {
-				this.fetchDb()
-			})
-			.catch(function (error) {
-				console.log("error");
-				console.log(error);
-			});
-	}
-
-	updateCard() {
-		axios
-			.put(`http://localhost:3001/menu/${this.state.menu[this.state.menu.length - 1]._id}`, {
-				"product_name": "Edited Product",
-				"product_description": "Edit Description",
-				// "product_price": 1000
-			})
-			.then((res) => {
-				this.fetchDb()
-			})
-			.catch(function (error) {
-				console.log("error");
-				console.log(error);
-			});
-	}
-
 	submitHandler = (event) => {
 		event.preventDefault();
 		axios
@@ -122,7 +77,6 @@ class Manage extends Component {
 				});
 			})
 			.catch(function (error) {
-				console.log("error");
 				console.log(error);
 			});
 	}
@@ -184,15 +138,6 @@ class Manage extends Component {
 
 				<h1 className="text-center font-bold text-4xl col-span-4">Le Menu</h1>
 				<div className="flex flex-wrap col-span-4">{this.menuCardsList()}</div>
-				<div className="p-6">
-					<button className="text-center text-2xl" onClick={() => this.addCard()}> Add </button>
-				</div>
-				<div className="p-6">
-					<button className="text-center text-2xl" onClick={() => this.removeCard()}> Delete </button>
-				</div>
-				<div className="p-6">
-					<button className="text-center text-2xl" onClick={() => this.updateCard()}> Update </button>
-				</div>
 			</div>
 		);
 	}
