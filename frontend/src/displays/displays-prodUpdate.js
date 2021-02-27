@@ -90,7 +90,7 @@ class Details extends Component {
 				onRequestClose={() => (window.location.pathname = `/manage/${this.state.menu._id}`)}
 			>
 
-				<div className="p-6 h-full">
+				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-6 h-full">
 					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
 						<button
 							onClick={() => (window.location.pathname = window.location.pathname = `/manage/${this.state.menu._id}`)}
@@ -100,55 +100,55 @@ class Details extends Component {
 						</button>
 					</div>
 					<hr />
-					<h1 className="text-center font-bold text-3xl">EDIT</h1>
+					<h1 className="text-center font-bold text-3xl my-2">EDIT</h1>
 					<form onSubmit={this.submitHandler}>
-						<div className="pt-4 h-full md:grid md:grid-cols-2">
+						<div className="h-1/2 md:grid md:grid-cols-2">
 							<div>
 								<img
 									src={this.state.update_img}
 									alt="Product Feature"
-									className="rounded-md w-full h-64 object-cover"
+									className="rounded-md w-full object-cover"
 								/>
-								<textarea className="px-2 w-full mt-2 text-white bg-blue-900 rounded-md" style={{ resize: 'none' }} rows="4" onChange={this.textAreaHandler} value={this.state.update_img} id="update_img" name="update_img" placeholder="Enter Product Image..." />
+								<textarea className="w-full mt-2 bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="4" onChange={this.textAreaHandler} value={this.state.update_img} id="update_img" name="update_img" placeholder="Enter Product Image..." />
 								<div className="w-full text-center">
-									<label className="font-bold w-full text-center" htmlFor="update_img">
+									<label className="font-bold font-mono w-full text-center" htmlFor="update_img">
 										Image URL
 									</label>
 								</div>
 							</div>
-							<div className="p-4 space-y-2">
-								<div>
-									<label className="font-bold mr-2" htmlFor="update_name">
+							<div className="md:p-4 mt-8 md:mt-0 space-y-2">
+								<div className="md:flex">
+									<label className="font-bold w-12 font-mono mr-2" htmlFor="update_name">
 										Name:
 									</label>
-									<div className="inline-block">
-										<input className="px-2 w-full text-white bg-blue-900 rounded-md" onChange={this.inputHandler} value={this.state.update_name} type="text" id="update_name" name="update_name" placeholder="Enter Product Name..." />
+									<div className="md:w-1/2 mt-1 md:mt-0">
+										<input className="px-2 w-full bg-gray-200 rounded-md" onChange={this.inputHandler} value={this.state.update_name} type="text" id="update_name" name="update_name" placeholder="Enter Product Name..." />
 									</div>
 								</div>
-								<div >
-									<label className="font-bold mr-2" htmlFor="update_price">
+								<div className="md:flex">
+									<label className="font-bold w-12 font-mono mr-2" htmlFor="update_price">
 										Price:
 										</label>
-									<div className="inline-block">
-										<input className="px-2 w-full text-white bg-blue-900 rounded-md" onChange={this.inputHandler} value={this.state.update_price} type="number" id="update_price" name="update_price" min='0' placeholder="Enter Price..." />
+									<div className="md:w-1/2 mt-1 md:mt-0">
+										<input className="px-2 w-full bg-gray-200 rounded-md" onChange={this.inputHandler} value={this.state.update_price} type="number" id="update_price" name="update_price" min='0' placeholder="Enter Price..." />
 									</div>
 								</div>
 								<div>
-									<label className="font-bold" htmlFor="update_desc">
+									<label className="font-bold font-mono" htmlFor="update_desc">
 										Description:
 									</label>
-									<div>
-										<textarea className="px-2 w-full text-white bg-blue-900 rounded-md" style={{ resize: 'none' }} rows="10" cols="30" onChange={this.textAreaHandler} value={this.state.update_desc} id="update_desc" name="update_desc" placeholder="Enter Product Description..." />
+									<div className="mt-1">
+										<textarea className="px-2 w-full bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="10" cols="30" onChange={this.textAreaHandler} value={this.state.update_desc} id="update_desc" name="update_desc" placeholder="Enter Product Description..." />
 									</div>
 								</div>
 							</div>
 						</div>
-						<div className="w-full text-center mt-8">
-							<input className="font-bold px-20 py-2 rounded-md bg-blue-900 text-white" type="submit" value="UPDATE PRODUCT" />
+						<div className="w-full text-center">
+							<input className="font-bold p-2 m-6 rounded-md bg-blue-900 text-white" type="submit" value="UPDATE PRODUCT" />
 						</div>
 					</form>
-				</div>
-			</Modal>
+				</div >
+			</Modal >
 		);
 	}
 }
