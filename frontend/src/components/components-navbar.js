@@ -66,20 +66,6 @@ class Navbar extends Component {
 						<Link
 							className={
 								"font-mono font-semibold text-xs sm:text-sm block border-2 border-white rounded py-1 px-3 " +
-								(window.location.pathname === "/manage"
-									? "bg-blue-500 text-white"
-									: "bg-gray-200 text-black")
-							}
-							to="/manage"
-						>
-							Manage
-						</Link>
-					</li>
-
-					<li className="sm:mr-3">
-						<Link
-							className={
-								"font-mono font-semibold text-xs sm:text-sm block border-2 border-white rounded py-1 px-3 " +
 								(window.location.pathname === "/contactUs"
 									? "bg-blue-500 text-white"
 									: "bg-gray-200 text-black")

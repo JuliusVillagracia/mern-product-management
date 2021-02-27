@@ -54,7 +54,7 @@ class Details extends Component {
 				"product_price": this.state.update_price
 			})
 			.then((res) => {
-				window.location.pathname = `/manage/${this.state.menu._id}`;
+				window.location.pathname = `/menu/${this.state.menu._id}`;
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -87,13 +87,13 @@ class Details extends Component {
 		return (
 			<Modal
 				isOpen={true}
-				onRequestClose={() => (window.location.pathname = `/manage/${this.state.menu._id}`)}
+				onRequestClose={() => (window.location.pathname = `/menu/${this.state.menu._id}`)}
 			>
 
-				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-6 h-full">
+				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl p-6 h-full">
 					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
 						<button
-							onClick={() => (window.location.pathname = window.location.pathname = `/manage/${this.state.menu._id}`)}
+							onClick={() => (window.location.pathname = window.location.pathname = `/menu/${this.state.menu._id}`)}
 							className="px-2"
 						>
 							X

@@ -27,7 +27,7 @@ class Details extends Component {
 		axios
 			.delete(`http://localhost:3001/menu/${this.state.menu._id}`)
 			.then((res) => {
-				window.location.pathname = "/manage";
+				window.location.pathname = "/menu";
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -38,7 +38,7 @@ class Details extends Component {
 		return (
 			<Modal
 				isOpen={true}
-				onRequestClose={() => (window.location.pathname = "/manage")}
+				onRequestClose={() => (window.location.pathname = "/menu")}
 			>
 				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-6 h-full">
 					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
@@ -49,13 +49,13 @@ class Details extends Component {
 							D
 						</button>
 						<button
-							onClick={() => (window.location.pathname = `/manage/${this.state.menu._id}/update`)}
+							onClick={() => (window.location.pathname = `/menu/${this.state.menu._id}/update`)}
 							className="px-2"
 						>
 							U
 						</button>
 						<button
-							onClick={() => (window.location.pathname = "/manage")}
+							onClick={() => (window.location.pathname = "/menu")}
 							className="px-2"
 						>
 							X

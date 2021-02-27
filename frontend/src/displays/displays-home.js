@@ -3,8 +3,8 @@ import React, { Component } from "react";
 class Home extends Component {
 	render() {
 		return (
-			<div className="p-6">
-				<h1 className="font-bold text-center text-4xl">Home Page</h1>
+			<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl p-6 h-full">
+				<h1 className="text-center font-bold text-3xl my-2">Home Page</h1>
 				<br />
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
