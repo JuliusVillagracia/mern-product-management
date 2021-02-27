@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ItemCard = (props) => (
-	<div className="card p-4 shadow-md w-64 rounded-md">
+	<div className="card p-4 shadow-md w-full sm:w-1/3 md:w-1/4 lg:w-1/5 xl:w-1/6 rounded-md">
 		<div className="container">
 			<img
 				src={props.menu.product_image}
 				alt="Product Feature"
-				className="rounded-md w-full"
+				className="rounded-md w-full h-32 sm:h-40 lg:h-48 object-cover"
 			/>
 			<h4 className="font-bold">{props.menu.product_name}</h4>
 			<p>{props.menu.product_description}</p>
@@ -53,7 +53,7 @@ class Menu extends Component {
 		return (
 			<div className="p-6">
 				<h1 className="text-center font-bold text-4xl">Le Menu</h1>
-				<div className="flex flex-wrap">{this.menuCardsList()}</div>
+				<div className="flex flex-wrap content-center">{this.menuCardsList()}</div>
 			</div>
 		);
 	}
