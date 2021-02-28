@@ -19,7 +19,7 @@ class Navbar extends Component {
 					<button className="sm:hidden">
 						< img
 							src={menuIcon}
-							alt="Cravings Logo"
+							alt="Menu Icon"
 							className="p-2 w-8 h-8"
 							onClick={() => this.toggleMenu()}
 						/>

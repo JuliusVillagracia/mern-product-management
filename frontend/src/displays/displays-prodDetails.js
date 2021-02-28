@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import deleteIcon from "../images/delete-icon.png";
+import editIcon from "../images/edit-icon.png";
+import cancelIcon from "../images/cancel-icon.png";
 
 class Details extends Component {
 	constructor(props) {
@@ -43,23 +46,26 @@ class Details extends Component {
 			>
 				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-6 h-full">
 					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
-						<button
-							onClick={() => this.removeCard()}
-							className="px-2"
-						>
-							D
+						<button className="p-1" onClick={() => this.removeCard()}>
+							< img
+								src={deleteIcon}
+								alt="Delete Icon"
+								className="w-4 h-4"
+							/>
 						</button>
-						<button
-							onClick={() => (window.location.pathname = `/menu/${this.state.menu._id}/update`)}
-							className="px-2"
-						>
-							U
+						<button className="p-1" onClick={() => (window.location.pathname = `/menu/${this.state.menu._id}/update`)}>
+							< img
+								src={editIcon}
+								alt="Edit Icon"
+								className="w-4 h-4"
+							/>
 						</button>
-						<button
-							onClick={() => (window.location.pathname = "/menu")}
-							className="px-2"
-						>
-							X
+						<button className="p-1" onClick={() => (window.location.pathname = "/menu")}>
+							< img
+								src={cancelIcon}
+								alt="Cancel Icon"
+								className="w-4 h-4"
+							/>
 						</button>
 					</div>
 					<hr />

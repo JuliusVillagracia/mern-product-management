@@ -33,10 +33,6 @@ class Manage extends Component {
 	}
 
 	componentDidMount() {
-		this.fetchDb();
-	}
-
-	fetchDb() {
 		axios
 			.get("http://localhost:3001/menu")
 			.then((res) => {
@@ -53,102 +49,10 @@ class Manage extends Component {
 		});
 	}
 
-	// submitHandler = (event) => {
-	// 	event.preventDefault();
-
-	// 	if (this.state.pimg == '') {
-	// 		this.state.pimg = "https://media1.giphy.com/media/PmuRN2xj0tfwuTPpIu/giphy.gif?cid=ecf05e47us9m25w57cq5p6qjt63iutw08pt2t1p1be49uaot&rid=giphy.gif";
-	// 	}
-
-	// 	if (this.state.pname == '') {
-	// 		this.state.pname = "* Untitled *";
-	// 	}
-
-	// 	axios
-	// 		.post("http://localhost:3001/menu", {
-	// 			"product_image": this.state.pimg,
-	// 			"product_name": this.state.pname,
-	// 			"product_description": this.state.pdesc,
-	// 			"product_price": this.state.pprice
-	// 		})
-	// 		.then((res) => {
-	// 			this.fetchDb()
-	// 			this.setState({
-	// 				'pimg': '',
-	// 				'pname': '',
-	// 				'pdesc': '',
-	// 				'pprice': 0
-	// 			});
-	// 		})
-	// 		.catch(function (error) {
-	// 			console.log(error);
-	// 		});
-	// }
-
-	// inputHandler = (event) => {
-	// 	event.preventDefault();
-	// 	this.setState({
-	// 		[event.target.name]: event.target.value
-	// 	});
-	// }
-
-	// textAreaHandler = (event) => {
-	// 	this.inputHandler(event);
-
-	// 	const prevRows = event.target.rows;
-	// 	event.target.rows = this.state.minRows;
-
-	// 	if (prevRows < Math.floor(event.target.scrollHeight / 24)) {
-	// 		if (Math.floor(event.target.scrollHeight / 24) < this.state.maxRows) {
-	// 			event.target.rows = Math.floor(event.target.scrollHeight / 24);
-	// 		} else {
-	// 			event.target.rows = this.state.maxRows;
-	// 		}
-	// 	}
-	// }
-
 	render() {
 		return (
 			<div>
-				<div className="px-6 grid grid-cols-4">
-					<h1 className="text-center font-bold text-3xl col-span-4">
-						Le Menu
-				</h1>
-					<div className="col-span-4">
-						{this.menuCardsList()}
-					</div>
-
-					{/* <div className="p-3 col-span-2 col-start-2 bg-blue-600 border-blue-200 border-8">
-						<h1 className="text-center font-bold text-2xl col-span-4 text-white">Le Product Form</h1>
-
-						<form className="text-right" onSubmit={this.submitHandler}>
-							<div className="grid grid-cols-3 py-1">
-								<label className="font-bold pr-2 w-full text-white" htmlFor="pname">Name:</label>
-								<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pname} type="text" id="pname" name="pname" placeholder="Enter Product Name..." />
-							</div>
-
-							<div className="grid grid-cols-3 py-1">
-								<label className="font-bold pr-2 w-full text-white" htmlFor="pdesc">Description:</label>
-								<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" cols="30" onChange={this.textAreaHandler} value={this.state.pdesc} id="pdesc" name="pdesc" placeholder="Enter Product Description..." />
-							</div>
-
-							<div className="grid grid-cols-3 py-1">
-								<label className="font-bold pr-2 w-full text-white" htmlFor="pimg">Image URL:</label>
-								<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" onChange={this.textAreaHandler} value={this.state.pimg} id="pimg" name="pimg" placeholder="Enter Product Image..." />
-							</div>
-
-							<div className="grid grid-cols-3 py-1">
-								<label className="font-bold pr-2 w-full text-white" htmlFor="pprice">Price:</label>
-								<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pprice} type="number" id="pprice" name="pprice" min='0' placeholder="Enter Price..." />
-							</div>
-
-							<p className="grid grid-cols-3 py-4">
-								<input className="font-bold col-start-2 bg-blue-700 text-white" type="submit" value="ADD" />
-							</p>
-						</form>
-					</div> */}
-				</div>
-				<div className="text-center m-6">
+				<div className="text-center mb-4">
 					<Link
 						className={
 							"font-bold py-2 px-8 rounded-md bg-blue-900 text-white"
@@ -157,6 +61,11 @@ class Manage extends Component {
 					>
 						ADD PRODUCT
 					</Link>
+				</div>
+				<div className="px-6 grid grid-cols-4">
+					<div className="col-span-4">
+						{this.menuCardsList()}
+					</div>
 				</div>
 			</div>
 		);

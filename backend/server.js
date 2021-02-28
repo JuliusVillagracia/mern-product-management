@@ -44,29 +44,6 @@ menuRoutes.route("/")
 				res.json(menu);
 			})
 	});
-// .put(function (req, res) {
-
-// })
-// .delete(function (req, res) {
-// 	// Menu.find(function (err, menu) {
-// 	// console.log("req.params")
-// 	// console.log(req.params)
-// 	// 	console.log("res")
-// 	// 	console.log(res.query)
-// 	// 	console.log("done")
-// 	// });
-
-// 	console.log(req)
-// 	console.log(req.params)
-
-// 	// Menu.findByIdAndRemove(req.params._id)
-// 	// 	.then((menu) => {
-// 	// 		console.log('Menu Item Removed ', menu);
-// 	// 		res.statusCode = 200;
-// 	// 		res.setHeader('Content-Type', 'application/json');
-// 	// 		res.json(menu);
-// 	// 	})
-// });
 
 menuRoutes.route("/:id")
 	.get(function (req, res) {
