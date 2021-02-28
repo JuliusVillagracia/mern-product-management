@@ -72,7 +72,7 @@ class Navbar extends Component {
 							}
 							to="/contactUs"
 						>
-							Contact Us
+							Contact Me
 						</Link>
 					</li>
 				</ul>

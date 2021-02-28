@@ -11,8 +11,6 @@ class Details extends Component {
 			update_name: '',
 			update_desc: '',
 			update_price: 0,
-			minRows: 1,
-			maxRows: 5,
 		};
 	}
 
@@ -68,28 +66,13 @@ class Details extends Component {
 		});
 	}
 
-	textAreaHandler = (event) => {
-		this.inputHandler(event);
-
-		const prevRows = event.target.rows;
-		event.target.rows = this.state.minRows;
-
-		if (prevRows < Math.floor(event.target.scrollHeight / 24)) {
-			if (Math.floor(event.target.scrollHeight / 24) < this.state.maxRows) {
-				event.target.rows = Math.floor(event.target.scrollHeight / 24);
-			} else {
-				event.target.rows = this.state.maxRows;
-			}
-		}
-	}
-
 	render() {
 		return (
 			<Modal
 				isOpen={true}
-				onRequestClose={() => (window.location.pathname = `/menu/${this.state.menu._id}`)}
+				ariaHideApp={false}
+				onRequestClose={() => (window.location.pathname = "/menu")}
 			>
-
 				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl p-6 h-full">
 					<div className="pr-4 pl-4 pt-4 absolute right-0 top-0">
 						<button
@@ -102,14 +85,14 @@ class Details extends Component {
 					<hr />
 					<h1 className="text-center font-bold text-3xl my-2">EDIT</h1>
 					<form onSubmit={this.submitHandler}>
-						<div className="h-1/2 md:grid md:grid-cols-2">
+						<div className="md:grid md:grid-cols-2">
 							<div>
 								<img
 									src={this.state.update_img}
-									alt="Product Feature"
-									className="rounded-md w-full object-cover"
+									alt="Product Preview"
+									className="rounded-md h-64 w-full object-cover"
 								/>
-								<textarea className="w-full mt-2 bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="4" onChange={this.textAreaHandler} value={this.state.update_img} id="update_img" name="update_img" placeholder="Enter Product Image..." />
+								<textarea className="px-2 w-full mt-2 bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="4" onChange={this.inputHandler} value={this.state.update_img} id="update_img" name="update_img" placeholder="Enter Product Image..." />
 								<div className="w-full text-center">
 									<label className="font-bold font-mono w-full text-center" htmlFor="update_img">
 										Image URL
@@ -138,7 +121,7 @@ class Details extends Component {
 										Description:
 									</label>
 									<div className="mt-1">
-										<textarea className="px-2 w-full bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="10" cols="30" onChange={this.textAreaHandler} value={this.state.update_desc} id="update_desc" name="update_desc" placeholder="Enter Product Description..." />
+										<textarea className="px-2 w-full bg-gray-200 rounded-md" style={{ resize: 'none' }} rows="10" cols="30" onChange={this.inputHandler} value={this.state.update_desc} id="update_desc" name="update_desc" placeholder="Enter Product Description..." />
 									</div>
 								</div>
 							</div>

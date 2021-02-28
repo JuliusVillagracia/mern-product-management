@@ -38,6 +38,7 @@ class Details extends Component {
 		return (
 			<Modal
 				isOpen={true}
+				ariaHideApp={false}
 				onRequestClose={() => (window.location.pathname = "/menu")}
 			>
 				<div className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl pt-6 h-full">
@@ -63,11 +64,11 @@ class Details extends Component {
 					</div>
 					<hr />
 					<h1 className="text-center font-bold text-3xl my-2">DETAILS</h1>
-					<div className="h-1/2 md:grid md:grid-cols-2">
+					<div className="md:grid md:grid-cols-2">
 						<img
 							src={this.state.menu.product_image}
 							alt="Product Feature"
-							className="rounded-md w-full object-cover"
+							className="rounded-md h-64 w-full object-cover"
 						/>
 						<div className="p-4">
 							<div className="md:flex">

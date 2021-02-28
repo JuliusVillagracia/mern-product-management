@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ItemCard = (props) => (
@@ -52,86 +53,111 @@ class Manage extends Component {
 		});
 	}
 
-	submitHandler = (event) => {
-		event.preventDefault();
-		axios
-			.post("http://localhost:3001/menu", {
-				"product_image": this.state.pimg,
-				"product_name": this.state.pname,
-				"product_description": this.state.pdesc,
-				"product_price": this.state.pprice
-			})
-			.then((res) => {
-				this.fetchDb()
-				this.setState({
-					'pimg': '',
-					'pname': '',
-					'pdesc': '',
-					'pprice': 0
-				});
-			})
-			.catch(function (error) {
-				console.log(error);
-			});
-	}
+	// submitHandler = (event) => {
+	// 	event.preventDefault();
 
-	inputHandler = (event) => {
-		event.preventDefault();
-		this.setState({
-			[event.target.name]: event.target.value
-		});
-	}
+	// 	if (this.state.pimg == '') {
+	// 		this.state.pimg = "https://media1.giphy.com/media/PmuRN2xj0tfwuTPpIu/giphy.gif?cid=ecf05e47us9m25w57cq5p6qjt63iutw08pt2t1p1be49uaot&rid=giphy.gif";
+	// 	}
 
-	textAreaHandler = (event) => {
-		this.inputHandler(event);
+	// 	if (this.state.pname == '') {
+	// 		this.state.pname = "* Untitled *";
+	// 	}
 
-		const prevRows = event.target.rows;
-		event.target.rows = this.state.minRows;
+	// 	axios
+	// 		.post("http://localhost:3001/menu", {
+	// 			"product_image": this.state.pimg,
+	// 			"product_name": this.state.pname,
+	// 			"product_description": this.state.pdesc,
+	// 			"product_price": this.state.pprice
+	// 		})
+	// 		.then((res) => {
+	// 			this.fetchDb()
+	// 			this.setState({
+	// 				'pimg': '',
+	// 				'pname': '',
+	// 				'pdesc': '',
+	// 				'pprice': 0
+	// 			});
+	// 		})
+	// 		.catch(function (error) {
+	// 			console.log(error);
+	// 		});
+	// }
 
-		if (prevRows < Math.floor(event.target.scrollHeight / 24)) {
-			if (Math.floor(event.target.scrollHeight / 24) < this.state.maxRows) {
-				event.target.rows = Math.floor(event.target.scrollHeight / 24);
-			} else {
-				event.target.rows = this.state.maxRows;
-			}
-		}
-	}
+	// inputHandler = (event) => {
+	// 	event.preventDefault();
+	// 	this.setState({
+	// 		[event.target.name]: event.target.value
+	// 	});
+	// }
+
+	// textAreaHandler = (event) => {
+	// 	this.inputHandler(event);
+
+	// 	const prevRows = event.target.rows;
+	// 	event.target.rows = this.state.minRows;
+
+	// 	if (prevRows < Math.floor(event.target.scrollHeight / 24)) {
+	// 		if (Math.floor(event.target.scrollHeight / 24) < this.state.maxRows) {
+	// 			event.target.rows = Math.floor(event.target.scrollHeight / 24);
+	// 		} else {
+	// 			event.target.rows = this.state.maxRows;
+	// 		}
+	// 	}
+	// }
 
 	render() {
 		return (
-			<div className="p-6 grid grid-cols-4">
-				<div className="p-3 col-span-2 col-start-2 bg-blue-600 border-blue-200 border-8">
-					<h1 className="text-center font-bold text-2xl col-span-4 text-white">Le Product Form</h1>
+			<div>
+				<div className="px-6 grid grid-cols-4">
+					<h1 className="text-center font-bold text-3xl col-span-4">
+						Le Menu
+				</h1>
+					<div className="col-span-4">
+						{this.menuCardsList()}
+					</div>
 
-					<form className="text-right" onSubmit={this.submitHandler}>
-						<div className="grid grid-cols-3 py-1">
-							<label className="font-bold pr-2 w-full text-white" htmlFor="pname">Name:</label>
-							<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pname} type="text" id="pname" name="pname" placeholder="Enter Product Name..." />
-						</div>
+					{/* <div className="p-3 col-span-2 col-start-2 bg-blue-600 border-blue-200 border-8">
+						<h1 className="text-center font-bold text-2xl col-span-4 text-white">Le Product Form</h1>
 
-						<div className="grid grid-cols-3 py-1">
-							<label className="font-bold pr-2 w-full text-white" htmlFor="pdesc">Description:</label>
-							<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" cols="30" onChange={this.textAreaHandler} value={this.state.pdesc} id="pdesc" name="pdesc" placeholder="Enter Product Description..." />
-						</div>
+						<form className="text-right" onSubmit={this.submitHandler}>
+							<div className="grid grid-cols-3 py-1">
+								<label className="font-bold pr-2 w-full text-white" htmlFor="pname">Name:</label>
+								<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pname} type="text" id="pname" name="pname" placeholder="Enter Product Name..." />
+							</div>
 
-						<div className="grid grid-cols-3 py-1">
-							<label className="font-bold pr-2 w-full text-white" htmlFor="pimg">Image URL:</label>
-							<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" onChange={this.textAreaHandler} value={this.state.pimg} id="pimg" name="pimg" placeholder="Enter Product Image..." />
-						</div>
+							<div className="grid grid-cols-3 py-1">
+								<label className="font-bold pr-2 w-full text-white" htmlFor="pdesc">Description:</label>
+								<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" cols="30" onChange={this.textAreaHandler} value={this.state.pdesc} id="pdesc" name="pdesc" placeholder="Enter Product Description..." />
+							</div>
 
-						<div className="grid grid-cols-3 py-1">
-							<label className="font-bold pr-2 w-full text-white" htmlFor="pprice">Price:</label>
-							<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pprice} type="number" id="pprice" name="pprice" min='0' placeholder="Enter Price..." />
-						</div>
+							<div className="grid grid-cols-3 py-1">
+								<label className="font-bold pr-2 w-full text-white" htmlFor="pimg">Image URL:</label>
+								<textarea className="col-span-2 px-2 w-full" style={{ resize: 'none' }} rows="1" onChange={this.textAreaHandler} value={this.state.pimg} id="pimg" name="pimg" placeholder="Enter Product Image..." />
+							</div>
 
-						<p className="grid grid-cols-3 py-4">
-							<input className="font-bold col-start-2 bg-blue-700 text-white" type="submit" value="ADD" />
-						</p>
-					</form>
+							<div className="grid grid-cols-3 py-1">
+								<label className="font-bold pr-2 w-full text-white" htmlFor="pprice">Price:</label>
+								<input className="col-span-2 px-2 w-full" onChange={this.inputHandler} value={this.state.pprice} type="number" id="pprice" name="pprice" min='0' placeholder="Enter Price..." />
+							</div>
+
+							<p className="grid grid-cols-3 py-4">
+								<input className="font-bold col-start-2 bg-blue-700 text-white" type="submit" value="ADD" />
+							</p>
+						</form>
+					</div> */}
 				</div>
-
-				<h1 className="text-center font-bold text-4xl col-span-4">Le Menu</h1>
-				<div className="flex flex-wrap col-span-4">{this.menuCardsList()}</div>
+				<div className="text-center m-6">
+					<Link
+						className={
+							"font-bold py-2 px-8 rounded-md bg-blue-900 text-white"
+						}
+						to="/menu/create"
+					>
+						ADD PRODUCT
+					</Link>
+				</div>
 			</div>
 		);
 	}
