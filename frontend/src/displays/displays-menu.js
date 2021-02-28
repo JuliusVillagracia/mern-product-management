@@ -62,8 +62,8 @@ class Manage extends Component {
 						ADD PRODUCT
 					</Link>
 				</div>
-				<div className="px-6 grid grid-cols-4">
-					<div className="col-span-4">
+				<div className="px-6">
+					<div>
 						{this.menuCardsList()}
 					</div>
 				</div>
