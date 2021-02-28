@@ -850,9 +850,6 @@ module.exports = {
 				".rotate-270": {
 					transform: "rotate(270deg)",
 				},
-				".banner": {
-					height: "200px",
-				},
 			};
 
 			addUtilities(newUtilities, ["responsive", "hover"]);

@@ -31,4 +31,4 @@ We will be needing three terminals
 1. Open one last terminal and redirect to the frontend path: `cd ../mern-product-management/frontend`
 2. Install all frontend dependencies: `npm install`
 3. Begin the application: `yarn start`
-4. Wait for it to open in: localhost:3000
+4. Wait for it to open in: `localhost:3000`

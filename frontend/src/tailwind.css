@@ -14565,10 +14565,6 @@ video {
   transform: rotate(270deg);
 }
 
-.banner {
-  height: 200px;
-}
-
 .hover\:rotate-0:hover {
   transform: rotate(0deg);
 }
@@ -14583,10 +14579,6 @@ video {
 
 .hover\:rotate-270:hover {
   transform: rotate(270deg);
-}
-
-.hover\:banner:hover {
-  height: 200px;
 }
 
 @media (min-width: 640px) {
@@ -28578,10 +28570,6 @@ video {
     transform: rotate(270deg);
   }
 
-  .sm\:banner {
-    height: 200px;
-  }
-
   .sm\:hover\:rotate-0:hover {
     transform: rotate(0deg);
   }
@@ -28596,10 +28584,6 @@ video {
 
   .sm\:hover\:rotate-270:hover {
     transform: rotate(270deg);
-  }
-
-  .sm\:hover\:banner:hover {
-    height: 200px;
   }
 }
 
@@ -42592,10 +42576,6 @@ video {
     transform: rotate(270deg);
   }
 
-  .md\:banner {
-    height: 200px;
-  }
-
   .md\:hover\:rotate-0:hover {
     transform: rotate(0deg);
   }
@@ -42610,10 +42590,6 @@ video {
 
   .md\:hover\:rotate-270:hover {
     transform: rotate(270deg);
-  }
-
-  .md\:hover\:banner:hover {
-    height: 200px;
   }
 }
 
@@ -56606,10 +56582,6 @@ video {
     transform: rotate(270deg);
   }
 
-  .lg\:banner {
-    height: 200px;
-  }
-
   .lg\:hover\:rotate-0:hover {
     transform: rotate(0deg);
   }
@@ -56624,10 +56596,6 @@ video {
 
   .lg\:hover\:rotate-270:hover {
     transform: rotate(270deg);
-  }
-
-  .lg\:hover\:banner:hover {
-    height: 200px;
   }
 }
 
@@ -70620,10 +70588,6 @@ video {
     transform: rotate(270deg);
   }
 
-  .xl\:banner {
-    height: 200px;
-  }
-
   .xl\:hover\:rotate-0:hover {
     transform: rotate(0deg);
   }
@@ -70638,9 +70602,5 @@ video {
 
   .xl\:hover\:rotate-270:hover {
     transform: rotate(270deg);
-  }
-
-  .xl\:hover\:banner:hover {
-    height: 200px;
   }
 }

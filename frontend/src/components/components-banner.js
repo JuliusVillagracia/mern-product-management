@@ -1,18 +1,13 @@
 import React, { Component } from "react";
-import banner from "../images/deliveryBanner.jpg";
+import banner from "../images/deliveryBanner.png";
 
 class Banner extends Component {
 	render() {
 		return (
 			<div
-				className="banner w-full min-w-full bg-no-repeat bg-fixed bg-cover bg-center"
+				className="h-40 sm:h-48 md:h-56 lg:h-64 w-full min-w-full bg-no-repeat bg-fixed bg-cover bg-top"
 				style={{ backgroundImage: `url(${banner})` }}
 			></div>
-			// <img
-			// 	src={banner}
-			// 	alt="Site Banner"
-			// 	className="w-full h-64 object-cover object-center"
-			// />
 		);
 	}
 }
