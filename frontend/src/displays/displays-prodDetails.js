@@ -78,7 +78,7 @@ class Details extends Component {
 						/>
 						<div className="p-4">
 							<div className="md:flex">
-								<div className="font-bold w-12 font-mono mr-2">
+								<div className="font-bold font-mono mr-2">
 									NAME:
 								</div>
 								<div className="md:w-1/2 mt-1 md:mt-0">
@@ -86,7 +86,7 @@ class Details extends Component {
 								</div>
 							</div>
 							<div className="md:flex">
-								<div className="font-bold w-12 font-mono mr-2 mt-4 md:mt-0">
+								<div className="font-bold font-mono mr-2 mt-4 md:mt-0">
 									PRICE:
 								</div>
 								<div className="md:w-1/2 mt-1 md:mt-0">
@@ -94,7 +94,7 @@ class Details extends Component {
 								</div>
 							</div>
 							<div>
-								<div className="font-bold w-12 font-mono mr-2 mt-4 md:mt-0">
+								<div className="font-bold font-mono mr-2 mt-4 md:mt-0">
 									DESCRIPTION:
 								</div>
 								<div className="md:w-1/2 mt-1 md:mt-0">
