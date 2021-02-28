@@ -52,7 +52,7 @@ class Manage extends Component {
 	render() {
 		return (
 			<div>
-				<div className="text-center mb-4">
+				<div className="text-center my-4">
 					<Link
 						className={
 							"font-bold py-2 px-8 rounded-md bg-blue-900 text-white"

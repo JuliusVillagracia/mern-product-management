@@ -11,7 +11,7 @@ class Contact extends Component {
 						Check My Other Projects
 					</div>
 					<div className="text-center justify-center content-center flex">
-						<button className="flex bg-gray-200 shadow-md rounded-md border-2 border-blue-900" onClick={() => window.location.assign("https://github.com/JuliusVillagracia")}>
+						<button className="flex bg-gray-200 shadow-md rounded-lg border-2 border-blue-900" onClick={() => window.location.assign("https://github.com/JuliusVillagracia")}>
 							< img
 								src={githubIcon}
 								alt="Github Icon"
@@ -29,7 +29,7 @@ class Contact extends Component {
 						Connect With Me
 					</div>
 					<div className="text-center justify-center content-center flex">
-						<button className="flex bg-gray-200 shadow-md rounded-md border-2 border-blue-900" onClick={() => window.location.assign("https://linkedin.com/in/JuliusVillagracia")}>
+						<button className="flex bg-gray-200 shadow-md rounded-lg border-2 border-blue-900" onClick={() => window.location.assign("https://linkedin.com/in/JuliusVillagracia")}>
 							< img
 								src={linkedinIcon}
 								alt="LinkedIn Icon"
