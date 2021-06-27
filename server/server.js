@@ -7,20 +7,22 @@ const app = express();
 const menuRoutes = express.Router();
 const PORT = 3001;
 
-let Menu = require("./menu.model");
+let Menu = require("./models/menu.model");
 
 app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
+	// .connect("mongodb+srv://mpm:mpm@alphacluster.tkymc.mongodb.net/menu?retryWrites=true&w=majority", {
 	.connect("mongodb://127.0.0.1:27017/menu", {
 		useUnifiedTopology: true,
+		useCreateIndex: true,
 		useNewUrlParser: true,
+		useFindAndModify: false,
 	})
 	.catch(console.error);
 
 const connection = mongoose.connection;
-
 connection.once("open", function () {
 	console.log("MongoDB database connection established successfully!");
 });
