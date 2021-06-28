@@ -19,13 +19,13 @@ The site lets the user manage a database of products, this includes creating, re
 ## Executing Locally (Windows)
 We will be needing three terminals
 ### Database
-1. Open the first terminal and redirect to the database path: `cd ../mern-product-management/backend/db`
+1. Open the first terminal and redirect to the database path: `cd ../mern-product-management/server/db`
 2. Start the database and use the current directory as its path: `mongod --dbpath %cd%`
 
 ### Server Side
-1. Open a second terminal and redirect to the backend path: `cd ../mern-product-management/backend`
+1. Open a second terminal and redirect to the backend path: `cd ../mern-product-management/server`
 2. Install all backend dependencies: `npm install`
-3. Start the server: `node server.js`
+3. Start the server: `npm start`
 
 ### Client Side
 1. Open one last terminal and redirect to the frontend path: `cd ../mern-product-management/frontend`
