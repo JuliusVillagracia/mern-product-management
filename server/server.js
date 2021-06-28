@@ -13,7 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose
-	// .connect("mongodb+srv://mpm:mpm@alphacluster.tkymc.mongodb.net/menu?retryWrites=true&w=majority", {
 	.connect("mongodb://127.0.0.1:27017/menu", {
 		useUnifiedTopology: true,
 		useCreateIndex: true,
